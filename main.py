@@ -17,15 +17,22 @@ ADVERTS
 import os
 import random
 
-movieDir = "F:/retrotv/movies"
-tvDir = "F:/retrotv/tv"
-advertsDir = "F:/retrotv/adverts"
-playlistDir = "F:/retrotv/playlists"
+movieDir = "F:\\retrotv\\movies"
+tvDir = "F:\\retrotv\\tv"
+advertsDir = "F:\\retrotv\\adverts"
+playlistDir = "F:\\retrotv\\playlists"
+
+
+def absolutePathing(directory):
+    root, dirs, files = next(os.walk(directory, topdown=True))
+    files = [os.path.join(root, f) for f in files]
+    return files
+
 
 for i in range(12):
-    moviePick = random.choice(os.listdir(movieDir))
-    tvPicks = random.sample(os.listdir(tvDir), 3)
-    advertPicks = random.sample(os.listdir(advertsDir), 25)
+    moviePick = random.choice(absolutePathing(movieDir))
+    tvPicks = random.sample(absolutePathing(tvDir), 3)
+    advertPicks = random.sample(absolutePathing(advertsDir), 25)
 
     print(moviePick)
     print(tvPicks)
