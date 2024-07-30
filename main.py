@@ -1,26 +1,10 @@
-# TODO - select a movie, 3 episodes of any particular show, and 40 advertisements
-
-"""
-Ah shit. Another project?
-
-
-MOVIE
-    - no issues?
-TV
-    - make sure no duplicates
-    - consider doing 3 in a row? s1e1, s1e2, s1e3
-ADVERTS
-    - make sure no duplicates
-    - get more maybe?
-"""
-
 import os
 import random
 
-movieDir = "F:\\retrotv\\movies"
-tvDir = "F:\\retrotv\\tv"
-advertsDir = "F:\\retrotv\\adverts"
-playlistDir = "F:\\retrotv\\playlists"
+movieDir = "/home/user/retrotv/movies"
+tvDir = "/home/user/retrotv/tv"
+advertsDir = "/home/user/retrotv/adverts"
+playlistDir = "/home/user/retrotv/playlists"
 
 
 def absolutePathing(directory):
