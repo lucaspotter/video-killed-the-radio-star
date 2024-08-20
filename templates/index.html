@@ -43,11 +43,12 @@
 
     <script>
 
+        var video = "{% if video %}{{ video }}{% else %}0Bmhjf0rKe8{% endif %}"
         // create youtube player
         var player;
         function onYouTubePlayerAPIReady() {
             player = new YT.Player('player', {
-              videoId: '0Bmhjf0rKe8',
+              videoId: video,
               playerVars: {'autoplay': 1, 'controls': 0, 'enablejsapi': 1},
               events: {
                 onReady: onPlayerReady,
@@ -56,34 +57,25 @@
             });
         }
 
-        // autoplay video
-        // when ready, wait for clicks
         function onPlayerReady(event) {
-          var player = event.target;
-          iframe = $('#player');
-          setupListener();
-        }
-
-        function setupListener (){
-        $('button').addEventListener('click', playFullscreen);
-        }
-
-        function playFullscreen () {
-            player.playvideo();//won't work on mobile
-
-            var requestFullScreen = iframe.requestFullScreen || iframe.mozRequestFullScreen || iframe.webkitRequestFullScreen;
-            if (requestFullScreen) {
-                requestFullScreen.bind(iframe)();
-            }
+            player.playvideo();
         }
 
         // when video ends
         function onPlayerStateChange(event) {
             if(event.data === 0) {
-                alert('done');
+                fetch("/next")
+                  .then((response) => response.json())
+                  .then((json) => console.log(json));
+
             }
         }
 
     </script>
+
+<h1>{{ video }}</h1>
+<h1>{{ host }}</h1>
+<h1>{{ channel }}</h1>
+
 </body>
 </html>

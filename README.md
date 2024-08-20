@@ -8,9 +8,12 @@ This sure is a project! I am currently trying to create a *thing* which automati
 I have a Raspberry Pi 3B strapped to an old RCA TruFlat and we're going for a spin. In a similar vein, show and movie recommendations
 are welcome. 
 
-This actually works how I imagined it to. Wowzers. Here's how to get it working on your side.
+This was *originally* just a playlist generator but then I saw something else and decided that I should do that instead.
+Part 1's the playlist thing, part 2's the flask thing.
 
-## Setup
+## Part I
+
+Generates a number of .m3u playlists for automatic playback with VLC. Includes script to begin playback on startup.
 
 - `git clone https://github.com/lucaspotter/video-killed-the-radio-star.git`
 - Go into main.py and retrotv.sh and change the directories to what you're using
@@ -30,12 +33,18 @@ Ok so. This is a yoink and twist from <ytch.xyz> - the idea is automatically pla
 My current implementation is... janky to say the best. But it does work.
 
 ### TODO
-- Actually shuffle the playlists
-- Maybe stop using playlists if possible
+- ~~Actually shuffle the playlists~~
+- ~~Maybe stop using playlists if possible~~
+  - Well almost fixed. Playlists now in JSON form, can't be deleted
   - Youtube has a mix feature - cash in?
 - Add more channels
   - This one matters less
 - Abandon ship on the composite out of the Raspberry Pi
   - But this one costs money
-- Maybe infared?
+- Maybe infrared?
   - It'd be funny to control it with an actual remote
+
+### KNOWN ISSUES
+- JSON parser shatters when prompted with a nonstandard character
+  - Weird quotation marks, emojis, etc
+  - Default lists has been cleared, be wary when adding your own
