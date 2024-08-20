@@ -26,4 +26,16 @@ This actually works how I imagined it to. Wowzers. Here's how to get it working 
 
 ## Part 2
 
-Alright I stole an idea and it almost works kinda. More to follow...
+Ok so. This is a yoink and twist from <ytch.xyz> - the idea is automatically playing youtube videos in the style of cable tv. 
+My current implementation is... janky to say the best. But it does work.
+
+### TODO
+- Actually shuffle the playlists
+- Maybe stop using playlists if possible
+  - Youtube has a mix feature - cash in?
+- Add more channels
+  - This one matters less
+- Abandon ship on the composite out of the Raspberry Pi
+  - But this one costs money
+- Maybe infared?
+  - It'd be funny to control it with an actual remote
