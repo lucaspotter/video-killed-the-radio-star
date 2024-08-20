@@ -23,3 +23,7 @@ This actually works how I imagined it to. Wowzers. Here's how to get it working 
 - Attach your Pi or other computer to a television set
   - Silly me assuming that the composite output would be easy as an Adafruit cable and `enable_tvout=1`. I wanted a retro experience without a converter box - I should have gotten the converter box. Abandon hope all ye who enter.
 - Run the script (or reboot if you're using rc.local) and enjoy!
+
+## Part 2
+
+Alright I stole an idea and it almost works kinda. More to follow...
