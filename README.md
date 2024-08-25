@@ -27,10 +27,23 @@ Generates a number of .m3u playlists for automatic playback with VLC. Includes s
   - Silly me assuming that the composite output would be easy as an Adafruit cable and `enable_tvout=1`. I wanted a retro experience without a converter box - I should have gotten the converter box. Abandon hope all ye who enter.
 - Run the script (or reboot if you're using rc.local) and enjoy!
 
-## Part 2
+## Part II
 
-Ok so. This is a yoink and twist from <ytch.xyz> - the idea is automatically playing youtube videos in the style of cable tv. 
-My current implementation is... janky to say the best. But it does work.
+Ok so. This is a yoink and twist from <https://ytch.xyz> - the idea is automatically playing youtube videos in the style of cable tv. 
+My current implementation is... janky to say the best. But it does work. Developed on Python 3.10.
+
+- `git clone https://github.com/lucaspotter/video-killed-the-radio-star.git`
+- If you want it to run on boot, then you need to do a magic trick involving rc.local
+  - `su user -c '/home/user/retrotv/first.sh'`
+    - You have the option of instead hosting the server on a separate device
+    - Clone the repo, install Flask, run app.py
+  - `su user -c '/home/user/retrotv/second.sh'`
+  - Change directories, username, yadda yadda
+  - Why rc.local and not cron? Cron is [weird and old.](https://forums.raspberrypi.com/viewtopic.php?p=2184401#p2184401) Your audio drivers will fail.
+  - Hey, I think I've heard this one before
+- Attach it to a television
+- Run/reboot, enjoy.
+  - On first run you'll have to do some media engagement to convince Chromium to let you have autoplay
 
 ### TODO
 - ~~Actually shuffle the playlists~~
@@ -39,12 +52,14 @@ My current implementation is... janky to say the best. But it does work.
   - Youtube has a mix feature - cash in?
 - Add more channels
   - This one matters less
+- Allow channel switching, even with automatic playback
 - Abandon ship on the composite out of the Raspberry Pi
   - But this one costs money
 - Maybe infrared?
   - It'd be funny to control it with an actual remote
 
+
 ### KNOWN ISSUES
-- JSON parser shatters when prompted with a nonstandard character
+- JSON parsing shatters when prompted with a nonstandard character
   - Weird quotation marks, emojis, etc
   - Default lists has been cleared, be wary when adding your own

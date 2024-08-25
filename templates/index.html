@@ -64,10 +64,9 @@
         // when video ends
         function onPlayerStateChange(event) {
             if(event.data === 0) {
-                fetch("/next")
+                fetch("/next?channel={{ channel }}")
                   .then((response) => response.json())
-                  .then((json) => console.log(json));
-
+                  .then((json) => player.loadVideoById(json.video));
             }
         }
 

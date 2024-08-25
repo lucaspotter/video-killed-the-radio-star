@@ -13,7 +13,7 @@ def channelToVideo(channel):
             # food network
             f = open('food.json')
             data = json.load(f)
-            video = random.randint(0, int(len(data))-1)
+            video = random.randint(0, int(len(data)) - 1)
             print(video)
             print(data[video]['videoId'])
             return data[video]['videoId']
@@ -39,17 +39,22 @@ def channelToVideo(channel):
 
 
 @app.route("/")
-def serving():  # we slay in this household
+def index():
     channel = request.args.get('channel', 1, type=int)
     print(channel)
     return render_template('index.html', channel=channel, video=channelToVideo(channel), host=host)
 
+
 @app.route("/next")
-def newFlavor(): # well now it's a food metaphor
+def newVideo():  # well now it's a food metaphor
     channel = request.args.get('channel', 1, type=int)
-    return "fuck you"
-    pass
+    print(channel)
+    data = {
+        "video": channelToVideo(channel)
+    }
+
+    return data
 
 
 if __name__ == '__main__':
-    app.run(debug=True, use_reloader=True)
+    app.run(host="0.0.0.0")
